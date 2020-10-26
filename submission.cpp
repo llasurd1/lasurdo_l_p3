@@ -86,7 +86,47 @@ int main(int argc, char *argv[]) {
 		}
 		//greedy algorithm 2
 		else if(alg==1) {
-
+			for(int i = 0; i<items[u]; i++) {
+				for(int j = 1; j<items[u]; j++) {
+					if(ratios[u][j] > ratios[u][i]) {
+						int temp = ratios[u][i];
+						ratios[u][i] = ratios[set][j];
+						ratios[u][j] = temp;
+						
+						temp = weights[u][i];
+						weights[u][i] = weights[u][j];
+						weights[u][j] = temp;
+						
+						temp = profits[u][i];
+						profits[u][i] = profits[u][j];
+						profits[u][j] = temp;
+					}
+				}
+			}
+			//for(int t = 0; t<3; t++) {
+				//cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
+			//}
+			double totalWeight = 0;
+			int maxProfit = 0;
+			int iter = 0;
+			while(totalWeight+weights[u][iter] <=knapcaps[u]) {
+				totalWeight+=weights[u][iter];
+				maxProfit+=profits[u][iter];
+				knapsack.push_back(profits[u][iter]);
+				iter++;
+			}
+			int pmax = 0;
+			for(int g = 0; g<profits[u].size(); g++) {
+				if(profits[u][g] > pmax && weights[u][g] <=knapcap[u]) {
+					pmax = profits[u][g];
+				}
+			}
+			if(pmax>maxProfit){
+				cout << knapcaps[u] << " "<< totalWeight<< " " << pmax << endl;
+			}
+			else {
+				cout << knapcaps[u] << " "<< totalWeight<< " " << maxProfit << endl;
+			}
 		}
 		//backtracking
 		else {

@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 				}
 			}
 			for(int t = 0; t<3; t++) {
-				cout << ratios[u][t] << endl;
+				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
 			}
 			double totalWeight = 0;
 			int maxProfit = 0;

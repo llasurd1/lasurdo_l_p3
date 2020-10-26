@@ -16,7 +16,6 @@ int main(int argc, char *argv[]) {
 	string p = tempstring.substr(1, tempstring.length()-2);
 	int x = stoi(p);
 	
-	int alg = stoi(tempstring[1]);
 	double weights[5][1000];
 	double profits[5][1000];
 	double ratios[5][1000];

@@ -40,8 +40,11 @@ int main(int argc, char *argv[]) {
 				file >> p;
 				r = p/w;
 				weights[set][i] = w;
+				cout << " weight "<< weights[set][i] << endl;
 				profits[set][i] = p;
+				cout << " profit" << profits[set][i] << endl;
 				ratios[set][i] = r;
+				cout << "ratios " << ratios[set][i] << endl;
 			}
 	      		set++;
 		}

@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
 		//greedy algorithm 1
 		if(alg==0) {
 			for(int i = 0; i<items[u]; i++) {
-				int(int j = 1; j<items[u]; j++) {
+				for(int j = 1; j<items[u]; j++) {
 					if(ratios[set][j] > ratios[set][i]) {
 						int temp = ratios[set][i];
 						ratios[set][i] = ratios[set][j];

@@ -40,11 +40,11 @@ int main(int argc, char *argv[]) {
 				file >> p;
 				r = p/w;
 				weights[set][i] = w;
-				cout << " weight "<< weights[set][i] << endl;
+				//cout << " weight "<< weights[set][i] << endl;
 				profits[set][i] = p;
-				cout << " profit" << profits[set][i] << endl;
+				//cout << " profit" << profits[set][i] << endl;
 				ratios[set][i] = r;
-				cout << "ratios " << ratios[set][i] << endl;
+				//cout << "ratios " << ratios[set][i] << endl;
 			}
 	      		set++;
 		}
@@ -70,9 +70,9 @@ int main(int argc, char *argv[]) {
 					}
 				}
 			}
-			for(int t = 0; t<3; t++) {
-				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
-			}
+			//for(int t = 0; t<3; t++) {
+				//cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
+			//}
 			double totalWeight = 0;
 			int maxProfit = 0;
 			int iter = 0;

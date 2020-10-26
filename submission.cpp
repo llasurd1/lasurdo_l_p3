@@ -70,9 +70,11 @@ int main(int argc, char *argv[]) {
 					}
 				}
 			}
+			
 			int totalWeight = 0;
 			int maxProfit = 0;
 			int iter = 0;
+			cout << "BANANA";
 			while(totalWeight+weights[set][iter]<=knapcaps[set]) {
 				totalWeight+=weights[set][iter];
 				maxProfit+=profits[set][iter];

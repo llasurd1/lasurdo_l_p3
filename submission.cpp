@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 		}
 	file.close();
 	}
-	for(int u = 0; u<set-1; u++) {
+	for(int u = 0; u<set; u++) {
 		//greedy algorithm 1
 		if(alg==0) {
 			for(int i = 0; i<items[u]; i++) {
@@ -74,7 +74,6 @@ int main(int argc, char *argv[]) {
 			int totalWeight = 0;
 			int maxProfit = 0;
 			int iter = 0;
-			cout << "BANANA";
 			while(totalWeight+weights[u][iter]<=knapcaps[u]) {
 				totalWeight+=weights[u][iter];
 				maxProfit+=profits[u][iter];

@@ -47,18 +47,46 @@ int main(int argc, char *argv[]) {
 		}
 	file.close();
 	}
-	if(alg==0) {
-		for(int i = 0; i<set-1; i++) {
-			for( int j = 0; j<10; j++) {
-				
+	for(int u = 0; u<set-1; u++) {
+		//greedy algorithm 1
+		if(alg==0) {
+			for(int i = 0; i<items[u]) {
+				int(int j = 1; j<items[u]; j++) {
+					if(ratios[set][j] > ratios[set][i]) {
+						int temp = ratios[set][i];
+						ratios[set][i] = ratios[set][j];
+						ratios[set][j] = temp;
+						
+						temp = weights[set][i];
+						weights[set][i] = weights[set][j];
+						weights[set][j] = weights;
+						
+						temp = profits[set][i];
+						profits[set][i] = profits[set][j];
+						profits[set][j] = profits;
+					}
+				}
 			}
+			int totalWeight = 0;
+			int maxProfit = 0;
+			int iter = 0;
+			while(totalWeight+weights[set][iter]<=knapcaps[set]) {
+				totalWeight+=weights[set][iter];
+				maxProfit+=profits[set][iter];
+				knapsack.push_back(profits[set][iter]);
+				iter++;
+			}
+			cout << knapcaps[set] << " "<< totalWeight<< " " << maxProfit;
 		}
+		//greedy algorithm 2
+		else if(alg==1) {
+
+		}
+		//backtracking
+		else {
+
+		}	
 	}
-	else if(alg==1) {
-		
-	}
-	else {
-		
-	}
+	
 	//output.close();
 }

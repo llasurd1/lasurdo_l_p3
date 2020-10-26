@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 				}
 			}
 			for(int t = 0; t<3; t++) {
-				cout << ratios[set][t] endl;
+				cout << ratios[set][t] << endl;
 			}
 			int totalWeight = 0;
 			int maxProfit = 0;

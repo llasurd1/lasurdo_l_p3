@@ -55,18 +55,18 @@ int main(int argc, char *argv[]) {
 		if(alg==0) {
 			for(int i = 0; i<items[u]; i++) {
 				for(int j = 1; j<items[u]; j++) {
-					if(ratios[set][j] > ratios[set][i]) {
-						int temp = ratios[set][i];
-						ratios[set][i] = ratios[set][j];
-						ratios[set][j] = temp;
+					if(ratios[u][j] > ratios[u][i]) {
+						int temp = ratios[u][i];
+						ratios[u][i] = ratios[set][j];
+						ratios[u][j] = temp;
 						
-						temp = weights[set][i];
-						weights[set][i] = weights[set][j];
-						weights[set][j] = temp;
+						temp = weights[u][i];
+						weights[u][i] = weights[u][j];
+						weights[u][j] = temp;
 						
-						temp = profits[set][i];
-						profits[set][i] = profits[set][j];
-						profits[set][j] = temp;
+						temp = profits[u][i];
+						profits[u][i] = profits[u][j];
+						profits[u][j] = temp;
 					}
 				}
 			}

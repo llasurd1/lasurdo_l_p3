@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 	for(int u = 0; u<set-1; u++) {
 		//greedy algorithm 1
 		if(alg==0) {
-			for(int i = 0; i<items[u]) {
+			for(int i = 0; i<items[u]; i++) {
 				int(int j = 1; j<items[u]; j++) {
 					if(ratios[set][j] > ratios[set][i]) {
 						int temp = ratios[set][i];

@@ -46,7 +46,9 @@ int main(int argc, char *argv[]) {
 	}
 	if(alg==0) {
 		for(int i = 0; i<set-1; i++) {
-			for int j = 0; j<	
+			for int j = 0; j<10; j++) {
+				
+			}
 		}
 	}
 	else if(alg==1) {

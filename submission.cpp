@@ -59,11 +59,11 @@ int main(int argc, char *argv[]) {
 						
 						temp = weights[set][i];
 						weights[set][i] = weights[set][j];
-						weights[set][j] = weights;
+						weights[set][j] = temp;
 						
 						temp = profits[set][i];
 						profits[set][i] = profits[set][j];
-						profits[set][j] = profits;
+						profits[set][j] = temp;
 					}
 				}
 			}

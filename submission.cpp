@@ -116,8 +116,8 @@ int main(int argc, char *argv[]) {
 				iter++;
 			}
 			int pmax = 0;
-			for(int g = 0; g<profits[u].size(); g++) {
-				if(profits[u][g] > pmax && weights[u][g] <=knapcap[u]) {
+			for(int g = 0; g<items[u]; g++) {
+				if(profits[u][g] > pmax && weights[u][g] <=knapcaps[u]) {
 					pmax = profits[u][g];
 				}
 			}

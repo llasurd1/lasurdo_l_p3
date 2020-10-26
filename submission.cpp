@@ -11,7 +11,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 	int set = 0;
-	int alg = argv[3];
+	int alg = stoi(argv[3][1]);
 	double weights[5][1000];
 	double profits[5][1000];
 	double ratios[5][1000];

@@ -10,8 +10,12 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
+	
 	int set = 0;
 	string tempstring = argv[3];
+	string p = tempstring.substr(1, tempstring.length()-2);
+	int x = stoi(p);
+	
 	int alg = stoi(tempstring[1]);
 	double weights[5][1000];
 	double profits[5][1000];

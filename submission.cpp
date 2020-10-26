@@ -73,14 +73,13 @@ int main(int argc, char *argv[]) {
 			
 			int totalWeight = 0;
 			int maxProfit = 0;
-			int iter = 0;
-			while(totalWeight+weights[u][iter]<=knapcaps[u]) {
+			while(totalWeight<knapcaps[u]) {
 				totalWeight+=weights[u][iter];
 				maxProfit+=profits[u][iter];
 				knapsack.push_back(profits[u][iter]);
 				iter++;
 			}
-			cout << knapcaps[set] << " "<< totalWeight<< " " << maxProfit << endl;
+			cout << knapcaps[u] << " "<< totalWeight<< " " << maxProfit << endl;
 		}
 		//greedy algorithm 2
 		else if(alg==1) {

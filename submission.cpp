@@ -217,10 +217,10 @@ int main(int argc, char *argv[]) {
 			knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, u, items[u], bestset, include);
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
-			cout << maxProfit;
-			for(int i = 0; i<numbest; i++) {
-				cout << bestset[i] <<endl;	
-			}
+			//cout << maxProfit;
+			//for(int i = 0; i<numbest; i++) {
+			//	cout << bestset[i] <<endl;	
+			//}
 		}	
 	}
 	

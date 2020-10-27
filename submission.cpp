@@ -17,9 +17,9 @@ int items[5];
 int knapcaps[5];
 vector<int> knapsack;
 
-int upper(int depth, int weight, int profit, int capacity, int n, int sett) {
+int upper(int depth, double weight, double profit, int capacity, int n, int sett) {
 	//n is items[u]
-	int bound = profit;
+	double bound = profit;
 	double x[n];
 	for(int i = depth; i<n; i++) {
 		x[i] = 0;
@@ -40,7 +40,7 @@ int upper(int depth, int weight, int profit, int capacity, int n, int sett) {
 	return bound;
 }
 
-void knap_sack(int depth, int weight, int profit, int capacity, int maxProfit, int numbest, int sett, int n, int bestset[], int include[]) {
+void knap_sack(int depth, double weight, double profit, int capacity, double maxProfit, int numbest, int sett, int n, int bestset[], int include[]) {
 	if(weight <= capacity && profit>maxProfit){
 		maxProfit = profit;
 		numbest = depth;

@@ -25,7 +25,7 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 	for(int i = depth; i<n; i++) {
 		x[i] = 0;
 	}
-	while(weight<capacity && depth<=n) {
+	while(weight<capacity && depth<n) {
 		if(weight + weights[sett][depth] <=capacity) {
 			x[depth] = 1;
 			weight+=weights[sett][depth];
@@ -185,11 +185,30 @@ int main(int argc, char *argv[]) {
 		}
 		//backtracking
 		else {
-			int bestset[10];
-			int include[10];
+			for(int i = 0; i<items[u]; i++) {
+				for(int j = 1; j<items[u]; j++) {
+					if(ratios[u][j] > ratios[u][i]) {
+						int temp = ratios[u][i];
+						ratios[u][i] = ratios[set][j];
+						ratios[u][j] = temp;
+						
+						temp = weights[u][i];
+						weights[u][i] = weights[u][j];
+						weights[u][j] = temp;
+						
+						temp = profits[u][i];
+						profits[u][i] = profits[u][j];
+						profits[u][j] = temp;
+					}
+				}
+			}
+			int bestset[1000];
+			int include[1000];
 			int numbest = 0;
 			double maxProfit = 0;
 			knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, u, items[u], bestset, include);
+			auto end = sc.now();
+	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
 			cout << maxProfit;
 			for(int i = 0; i<numbest; i++) {
 				cout << bestset[i] <<endl;	

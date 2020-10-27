@@ -207,19 +207,7 @@ int main(int argc, char *argv[]) {
 					}
 				}
 			}
-			for(int q = 0; q< heap.size(); q++) {
-					for(int a = 0; a<heap.size(); a++){
-						if(heap[a]>heap[q]) {
-							int temp = heap[q];
-							heap[q] = heap[a];
-							heap[a] = temp;
-							
-							string stemp = trace[q];
-							trace[q] = trace[a];
-							trace[a] = stemp;
-						}
-					}
-				}
+			
 			for(int t = 0; t<10; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
 			}

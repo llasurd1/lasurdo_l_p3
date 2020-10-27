@@ -27,8 +27,8 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 	while(weight<capacity && depth<=n) {
 		if(weight + weights[sett][depth] <=capacity) {
 			x[depth] = 1;
-			weight+=weights[depth];
-			bound+=profits[depth];
+			weight+=weights[sett][depth];
+			bound+=profits[sett][depth];
 		}
 		else{
 			x[depth] = (capacity - weight)/weights[sett][depth];

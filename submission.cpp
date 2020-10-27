@@ -49,9 +49,9 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 	int bound = upper(depth, weight, profit, capacity, n,  sett);
 	if(weight<capacity&&bound>maxProfit) {
 		include[depth+1] = 1;
-		knapsack[depth+1, weight + weights[sett][depth+1], profit + profits[sett][depth+1], capaciry, maxProfit, numbest, sett, n, bestset, include);
+		knapsack(depth+1, weight + weights[sett][depth+1], profit + profits[sett][depth+1], capacity, maxProfit, numbest, sett, n, bestset, include);
 		include[depth+1] = 0;
-		knapsack[depth+1, weight, profit, capacity, maxProfit, numbest, sett, n, bestset, include);
+		knapsack(depth+1, weight, profit, capacity, maxProfit, numbest, sett, n, bestset, include);
 
 	}
 }
@@ -176,7 +176,7 @@ int main(int argc, char *argv[]) {
 				for(int b = 0; b<knapsack.size(); b++) {
 					cout << " " << knapsack[b];
 				}
-				cout << "" << endl
+				cout << "" << endl;
 			}
 			else {
 				cout << items[u] << " "<< maxProfit<< " " << time_span.count() << " " << g << endl;

@@ -41,7 +41,7 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 	return bound;
 }
 
-void knap_sack(int depth, double weight, double profit, int capacity, double maxProfit, int numbest, int sett, int n, int bestset[1001], int include[1001]) {
+void knap_sack(int depth, double weight, double profit, int capacity, double maxProfit, int numbest, int sett, int n, int bestset[], int include[]) {
 	if(weight <= capacity && profit>maxProfit){
 		maxProfit = profit;
 		numbest = depth;
@@ -50,7 +50,7 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 	int bound = upper(depth, weight, profit, capacity, n,  sett);
 	if(weight<capacity&&bound>maxProfit) {
 		include[depth+1] = 1;
-		knapsack(depth+1, weight + weights[sett][depth+1], profit + profits[sett][depth+1], capacity, maxProfit, numbest, sett, n, bestset, include);
+		knapsack(depth+1, (weight + weights[sett][depth+1]), (profit + profits[sett][depth+1]), capacity, maxProfit, numbest, sett, n, bestset, include);
 		include[depth+1] = 0;
 		knapsack(depth+1, weight, profit, capacity, maxProfit, numbest, sett, n, bestset, include);
 
@@ -185,7 +185,8 @@ int main(int argc, char *argv[]) {
 		}
 		//backtracking
 		else {
-			
+			int bestset[1001];
+			int include[1001];
 			int numbest = 0;
 			double maxProfit = 0;
 			knapsack(0, 0, 0, knapcaps[u], maxProfit, numbest, bestset, include);

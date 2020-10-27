@@ -17,6 +17,7 @@ int items[5];
 int knapcaps[5];
 vector<int> knapsack;
 
+
 int upper(int depth, double weight, double profit, int capacity, int n, int sett) {
 	//n is items[u]
 	double bound = profit;
@@ -40,7 +41,7 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 	return bound;
 }
 
-void knap_sack(int depth, double weight, double profit, int capacity, double maxProfit, int numbest, int sett, int n, int bestset[], int include[]) {
+void knap_sack(int depth, double weight, double profit, int capacity, double maxProfit, int numbest, int sett, int n, int bestset[1001], int include[1001]) {
 	if(weight <= capacity && profit>maxProfit){
 		maxProfit = profit;
 		numbest = depth;
@@ -179,15 +180,14 @@ int main(int argc, char *argv[]) {
 				cout << "" << endl;
 			}
 			else {
-				cout << items[u] << " "<< maxProfit<< " " << time_span.count() << " " << g << endl;
+				cout << items[u] << " "<< maxProfit<< " " << time_span.count() << " " << id << endl;
 			}
 		}
 		//backtracking
 		else {
-			int bestset[1001];
-			int include[1001];
+			
 			int numbest = 0;
-			int maxProfit = 0;
+			double maxProfit = 0;
 			knapsack(0, 0, 0, knapcaps[u], maxProfit, numbest, bestset, include);
 			cout << maxProfit;
 			for(int i = 0; i<numbest; i++) {

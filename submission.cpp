@@ -9,12 +9,21 @@
 #include <chrono>
 
 using namespace std;
+int set = 0;
+double weights[5][1000];
+double profits[5][1000];
+double ratios[5][1000];
+int items[5];
+int knapcaps[5];
+vector<int> knapsack;
 
-
-int upper(int depth, weight, profit, double weights[][], double profits[][], int capacity, int n, int sett) {
+int upper(int depth, weight, profit, int capacity, int n, int sett) {
+	//n is items[u]
 	int bound = profit;
-	double x[
-	for(int i = depth; i< n; i++) {
+	double x[n];
+	for(int i = depth; i<n; i++) {
+		x[i] = 0;
+	}
 	while(weight<capacity && depth<=n) {
 		if(weight + weights[sett][depth] <=capacity) {
 			x[depth] = 1;
@@ -30,20 +39,29 @@ int upper(int depth, weight, profit, double weights[][], double profits[][], int
 	}
 	return bound;
 }
-	
+
+void knap_sack(int depth, int weight, int profit, int capacity, int maxProfit, int numbest, int sett, int n, int bestset[], int include[]) {
+	if(weight <= capacity && profit>maxProfit){
+		maxProfit = profit;
+		numbest = depth;
+		bestset = include;
+	}
+	int bound = upper(depth, weight, profit, capacity, n,  sett);
+	if(weight<capacity&&bound>maxProfit) {
+		include[depth+1] = 1;
+		knapsack[depth+1, weight + weights[sett][depth+1], profit + profits[sett][depth+1], capaciry, maxProfit, numbest, sett, n, bestset, include);
+		include[depth+1] = 0;
+		knapsack[depth+1, weight, profit, capacity, maxProfit, numbest, sett, n, bestset, include);
+
+	}
+}
 
 int main(int argc, char *argv[]) {
 	
-	int set = 0;
+	
 	string tempstring = argv[3];
 	int alg = stoi(tempstring);
 	
-	double weights[5][1000];
-	double profits[5][1000];
-	double ratios[5][1000];
-	int items[5];
- 	int knapcaps[5];
-	vector<int> knapsack;
 	
 	fstream file(argv[1], fstream::in);
 	ofstream output;
@@ -105,7 +123,7 @@ int main(int argc, char *argv[]) {
 			while(totalWeight+weights[u][iter] <=knapcaps[u]) {
 				totalWeight+=weights[u][iter];
 				maxProfit+=profits[u][iter];
-				knapsack.push_back(iter]);
+				knapsack.push_back(iter+1);
 				iter++;
 			}
 			auto end = sc.now();
@@ -140,7 +158,7 @@ int main(int argc, char *argv[]) {
 			while(totalWeight+weights[u][iter] <=knapcaps[u]) {
 				totalWeight+=weights[u][iter];
 				maxProfit+=profits[u][iter];
-				knapsack.push_back(iter);
+				knapsack.push_back(iter+1);
 				iter++;
 			}
 			int pmax = 0;
@@ -166,7 +184,15 @@ int main(int argc, char *argv[]) {
 		}
 		//backtracking
 		else {
-			
+			int bestset[1001];
+			int include[1001];
+			int numbest = 0;
+			int maxProfit = 0;
+			knapsack(0, 0, 0, knapcaps[u], maxProfit, numbest, bestset, include);
+			cout << maxProfit;
+			for(int i = 0; i<numbest; i++) {
+				cout << bestset[i]	
+			}
 		}	
 	}
 	

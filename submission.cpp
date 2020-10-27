@@ -187,9 +187,9 @@ int main(int argc, char *argv[]) {
 		}
 		//backtracking
 		else {
-			for(int t = 0; t<10; t++) {
+			/*for(int t = 0; t<10; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
-			}
+			}*/
 			for(int i = 0; i<items[u]; i++) {
 				for(int j = 0; j<items[u]; j++) {
 					if(ratios[u][j] < ratios[u][i]) {
@@ -208,9 +208,9 @@ int main(int argc, char *argv[]) {
 				}
 			}
 			
-			for(int t = 0; t<10; t++) {
+			/*for(int t = 0; t<10; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
-			}
+			}*/
 			int bestset[1000];
 			int include[1000];
 			int numbest = 0;
@@ -218,10 +218,10 @@ int main(int argc, char *argv[]) {
 			knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, u, items[u], bestset, include);
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
-			//cout << maxProfit;
-			//for(int i = 0; i<numbest; i++) {
-			//	cout << bestset[i] <<endl;	
-			//}
+			cout << maxProfit << endl;
+			for(int i = 0; i<numbest; i++) {
+				cout << bestset[i] <<endl;	
+			}
 		}	
 	}
 	

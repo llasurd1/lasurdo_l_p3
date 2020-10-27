@@ -187,6 +187,9 @@ int main(int argc, char *argv[]) {
 		}
 		//backtracking
 		else {
+			for(int t = 0; t<10; t++) {
+				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
+			}
 			for(int i = 0; i<items[u]; i++) {
 				for(int j = 1; j<items[u]; j++) {
 					if(ratios[u][j] > ratios[u][i]) {

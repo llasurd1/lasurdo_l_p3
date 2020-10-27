@@ -189,7 +189,7 @@ int main(int argc, char *argv[]) {
 			int include[1001];
 			int numbest = 0;
 			double maxProfit = 0;
-			knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, bestset, include);
+			knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, u, items[u], bestset, include);
 			cout << maxProfit;
 			for(int i = 0; i<numbest; i++) {
 				cout << bestset[i] <<endl;	

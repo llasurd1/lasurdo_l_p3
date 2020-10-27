@@ -136,7 +136,7 @@ int main(int argc, char *argv[]) {
 		//greedy algorithm 2
 		else if(alg==1) {
 			for(int i = 0; i<items[u]; i++) {
-				for(int j = 1; j<items[u]; j++) {
+				for(int j = 1; j<items[u]+1; j++) {
 					if(ratios[u][j] > ratios[u][i]) {
 						double temp = ratios[u][i];
 						ratios[u][i] = ratios[u][j];
@@ -207,6 +207,19 @@ int main(int argc, char *argv[]) {
 					}
 				}
 			}
+			for(int q = 0; q< heap.size(); q++) {
+					for(int a = 0; a<heap.size(); a++){
+						if(heap[a]>heap[q]) {
+							int temp = heap[q];
+							heap[q] = heap[a];
+							heap[a] = temp;
+							
+							string stemp = trace[q];
+							trace[q] = trace[a];
+							trace[a] = stemp;
+						}
+					}
+				}
 			for(int t = 0; t<10; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
 			}

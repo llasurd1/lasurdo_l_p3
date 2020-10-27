@@ -104,7 +104,7 @@ int main(int argc, char *argv[]) {
 				for(int j = 1; j<items[u]; j++) {
 					if(ratios[u][j] > ratios[u][i]) {
 						int temp = ratios[u][i];
-						ratios[u][i] = ratios[set][j];
+						ratios[u][i] = ratios[u][j];
 						ratios[u][j] = temp;
 						
 						temp = weights[u][i];
@@ -139,7 +139,7 @@ int main(int argc, char *argv[]) {
 				for(int j = 1; j<items[u]; j++) {
 					if(ratios[u][j] > ratios[u][i]) {
 						double temp = ratios[u][i];
-						ratios[u][i] = ratios[set][j];
+						ratios[u][i] = ratios[u][j];
 						ratios[u][j] = temp;
 						
 						temp = weights[u][i];
@@ -194,7 +194,7 @@ int main(int argc, char *argv[]) {
 				for(int j = 1; j<items[u]; j++) {
 					if(ratios[u][j] > ratios[u][i]) {
 						double temp = ratios[u][i];
-						ratios[u][i] = ratios[set][j];
+						ratios[u][i] = ratios[u][j];
 						ratios[u][j] = temp;
 						
 						temp = weights[u][i];

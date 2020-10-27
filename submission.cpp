@@ -185,8 +185,8 @@ int main(int argc, char *argv[]) {
 		}
 		//backtracking
 		else {
-			int bestset[1000];
-			int include[1000];
+			int bestset[10];
+			int include[10];
 			int numbest = 0;
 			double maxProfit = 0;
 			knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, u, items[u], bestset, include);

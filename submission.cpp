@@ -191,7 +191,7 @@ int main(int argc, char *argv[]) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
 			}
 			for(int i = 0; i<items[u]; i++) {
-				for(int j = 1; j<items[u]; j++) {
+				for(int j = 0; j<items[u]; j++) {
 					if(ratios[u][j] > ratios[u][i]) {
 						double tempr = ratios[u][i];
 						ratios[u][i] = ratios[u][j];

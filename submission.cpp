@@ -17,7 +17,7 @@ int items[5];
 int knapcaps[5];
 vector<int> knapsack;
 
-int upper(int depth, weight, profit, int capacity, int n, int sett) {
+int upper(int depth, int weight, int profit, int capacity, int n, int sett) {
 	//n is items[u]
 	int bound = profit;
 	double x[n];
@@ -191,7 +191,7 @@ int main(int argc, char *argv[]) {
 			knapsack(0, 0, 0, knapcaps[u], maxProfit, numbest, bestset, include);
 			cout << maxProfit;
 			for(int i = 0; i<numbest; i++) {
-				cout << bestset[i]	
+				cout << bestset[i] <<endl;	
 			}
 		}	
 	}

@@ -6,8 +6,31 @@
 #include <array>
 #include <cmath>
 #include <vector>
+#include <chrono>
 
 using namespace std;
+
+
+int upper(int depth, weight, profit, double weights[][], double profits[][], int capacity, int n, int sett) {
+	int bound = profit;
+	double x[
+	for(int i = depth; i< n; i++) {
+	while(weight<capacity && depth<=n) {
+		if(weight + weights[sett][depth] <=capacity) {
+			x[depth] = 1;
+			weight+=weights[depth];
+			bound+=profits[depth];
+		}
+		else{
+			x[depth] = (capacity - weight)/weights[sett][depth];
+			weight = capacity;
+			bound = bound + profits[sett][depth];
+		}
+		depth = depth + 1;
+	}
+	return bound;
+}
+	
 
 int main(int argc, char *argv[]) {
 	
@@ -51,8 +74,11 @@ int main(int argc, char *argv[]) {
 	file.close();
 	}
 	for(int u = 0; u<set; u++) {
+		chrono::steady_clock sc;
+	  	auto start = sc.now();
 		//greedy algorithm 1
 		if(alg==0) {
+		
 			for(int i = 0; i<items[u]; i++) {
 				for(int j = 1; j<items[u]; j++) {
 					if(ratios[u][j] > ratios[u][i]) {
@@ -79,10 +105,12 @@ int main(int argc, char *argv[]) {
 			while(totalWeight+weights[u][iter] <=knapcaps[u]) {
 				totalWeight+=weights[u][iter];
 				maxProfit+=profits[u][iter];
-				knapsack.push_back(profits[u][iter]);
+				knapsack.push_back(iter]);
 				iter++;
 			}
-			cout << knapcaps[u] << " "<< totalWeight<< " " << maxProfit << endl;
+			auto end = sc.now();
+	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
+			cout << items[u] << " "<< maxProfit<< " " << time_span.count() << endl;
 		}
 		//greedy algorithm 2
 		else if(alg==1) {
@@ -112,25 +140,33 @@ int main(int argc, char *argv[]) {
 			while(totalWeight+weights[u][iter] <=knapcaps[u]) {
 				totalWeight+=weights[u][iter];
 				maxProfit+=profits[u][iter];
-				knapsack.push_back(profits[u][iter]);
+				knapsack.push_back(iter);
 				iter++;
 			}
 			int pmax = 0;
+			int id;
 			for(int g = 0; g<items[u]; g++) {
 				if(profits[u][g] > pmax && weights[u][g] <=knapcaps[u]) {
 					pmax = profits[u][g];
+					id = g;
 				}
 			}
+			auto end = sc.now();
+	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
 			if(pmax>maxProfit){
-				cout << knapcaps[u] << " "<< totalWeight<< " " << pmax << endl;
+				cout << items[u] << " "<< pmax<< " " << time_span.count();
+				for(int b = 0; b<knapsack.size(); b++) {
+					cout << " " << knapsack[b];
+				}
+				cout << "" << endl
 			}
 			else {
-				cout << knapcaps[u] << " "<< totalWeight<< " " << maxProfit << endl;
+				cout << items[u] << " "<< maxProfit<< " " << time_span.count() << " " << g << endl;
 			}
 		}
 		//backtracking
 		else {
-
+			
 		}	
 	}
 	

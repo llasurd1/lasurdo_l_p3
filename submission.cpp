@@ -64,6 +64,27 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 	}
 }
 
+int max(double a, double b) {
+	if(a>b) {
+		return a;	
+	}
+	else {
+		return b;	
+	}
+}
+
+int napsack(int weight, int n, int u) {
+	if(n==0||weight==0) {
+		return 0;	
+	}
+	if(weights[u][n] > weight) {
+		return napsack(weight, n-1, u);	
+	}
+	else {
+		return max(profits[u][n] + knapSack(weight - weights[u][n], weight, n - 1, u), knapSack(weight, n - 1, u)); 
+	}
+}
+
 int main(int argc, char *argv[]) {
 	
 	
@@ -220,7 +241,9 @@ int main(int argc, char *argv[]) {
 			int include[1001];
 			int numbest = 0;
 			double maxProfit = 0;
-			knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, u, items[u], bestset, include);
+			//knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, u, items[u], bestset, include);
+			int v = sizeof(weights)/sizeof(weights[1]);
+			cout<< napsack(knapcap[u], v, u);
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
 			cout << maxProfit << endl;

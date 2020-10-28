@@ -22,7 +22,7 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 	//n is items[u]
 	double bound = profit;
 	double x[n];
-	for(int i = depth; i<n; i++) {
+	for(int i = depth; i<=n; i++) {
 		x[i] = 0;
 	}
 	while(weight<capacity && depth<=n) {
@@ -45,10 +45,10 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 	if(weight <= capacity && profit>maxProfit){
 		maxProfit = profit;
 		numbest = depth;
-		for(int i = 1; i<sizeof(bestset)/sizeof(bestset[0]); i++) {
+		for(int i = 1; i<=sizeof(bestset)/sizeof(bestset[0]); i++) {
 			bestset[i] = 0;	
 		}
-		for(int i = 1; i<sizeof(include)/sizeof(include[0]); i++) {
+		for(int i = 1; i<=sizeof(include)/sizeof(include[0]); i++) {
 			bestset[i] = include[i];
 		}
 	}
@@ -81,7 +81,7 @@ int main(int argc, char *argv[]) {
 			file >> knapcap;
 			items[set] = item;
 			knapcaps[set] = knapcap;
-			for(int i = 1; i<item; i++) {
+			for(int i = 1; i<=item; i++) {
 				double w, p, r;
 				file >> w;
 				file >> p;
@@ -104,7 +104,7 @@ int main(int argc, char *argv[]) {
 		if(alg==0) {
 		
 			for(int i = 1; i<items[u]; i++) {
-				for(int j = 1; j<items[u]; j++) {
+				for(int j = 1; j<=items[u]; j++) {
 					if(ratios[u][j] > ratios[u][i]) {
 						double temp = ratios[u][i];
 						ratios[u][i] = ratios[u][j];
@@ -138,8 +138,8 @@ int main(int argc, char *argv[]) {
 		}
 		//greedy algorithm 2
 		else if(alg==1) {
-			for(int i = 1; i<items[u]; i++) {
-				for(int j = 1; j<items[u]+1; j++) {
+			for(int i = 1; i<=items[u]; i++) {
+				for(int j = 1; j<=items[u]+1; j++) {
 					if(ratios[u][j] > ratios[u][i]) {
 						double temp = ratios[u][i];
 						ratios[u][i] = ratios[u][j];
@@ -169,7 +169,7 @@ int main(int argc, char *argv[]) {
 			}
 			int pmax = 0;
 			int id;
-			for(int g = 0; g<items[u]; g++) {
+			for(int g = 0; g<=items[u]; g++) {
 				if(profits[u][g] > pmax && weights[u][g] <=knapcaps[u]) {
 					pmax = profits[u][g];
 					id = g;
@@ -193,8 +193,8 @@ int main(int argc, char *argv[]) {
 			/*for(int t = 0; t<10; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
 			}*/
-			for(int i = 1; i<items[u]; i++) {
-				for(int j = 1; j<items[u]; j++) {
+			for(int i = 1; i<=items[u]; i++) {
+				for(int j = 1; j<=items[u]; j++) {
 					if(ratios[u][j] < ratios[u][i]) {
 						double tempr = ratios[u][i];
 						ratios[u][i] = ratios[u][j];

@@ -10,9 +10,9 @@
 
 using namespace std;
 int set = 0;
-double weights[5][1000];
-double profits[5][1000];
-double ratios[5][1000];
+double weights[5][1001];
+double profits[5][1001];
+double ratios[5][1001];
 int items[5];
 int knapcaps[5];
 vector<int> knapsack;
@@ -25,7 +25,7 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 	for(int i = depth; i<n; i++) {
 		x[i] = 0;
 	}
-	while(weight<capacity && depth<n) {
+	while(weight<capacity && depth<=n) {
 		if(weight + weights[sett][depth] <=capacity) {
 			x[depth] = 1;
 			weight+=weights[sett][depth];
@@ -34,7 +34,7 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 		else{
 			x[depth] = (capacity - weight)/weights[sett][depth];
 			weight = capacity;
-			bound = bound + profits[sett][depth];
+			bound = bound + (profits[sett][depth]*x[depth]);
 		}
 		depth = depth + 1;
 	}
@@ -45,7 +45,10 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 	if(weight <= capacity && profit>maxProfit){
 		maxProfit = profit;
 		numbest = depth;
-		for(int i = 0; i<sizeof(include); i++) {
+		for(int i = 1; i<bestset.size(); i++) {
+			bestsize[i] = 0;	
+		}
+		for(int i = 1; i<sizeof(include); i++) {
 			bestset[i] = include[i];
 		}
 	}
@@ -78,7 +81,7 @@ int main(int argc, char *argv[]) {
 			file >> knapcap;
 			items[set] = item;
 			knapcaps[set] = knapcap;
-			for(int i = 0; i<item; i++) {
+			for(int i = 1; i<item; i++) {
 				double w, p, r;
 				file >> w;
 				file >> p;
@@ -100,7 +103,7 @@ int main(int argc, char *argv[]) {
 		//greedy algorithm 1
 		if(alg==0) {
 		
-			for(int i = 0; i<items[u]; i++) {
+			for(int i = 1; i<items[u]; i++) {
 				for(int j = 1; j<items[u]; j++) {
 					if(ratios[u][j] > ratios[u][i]) {
 						double temp = ratios[u][i];
@@ -122,7 +125,7 @@ int main(int argc, char *argv[]) {
 			//}
 			double totalWeight = 0;
 			int maxProfit = 0;
-			int iter = 0;
+			int iter = 1;
 			while(totalWeight+weights[u][iter] <=knapcaps[u]) {
 				totalWeight+=weights[u][iter];
 				maxProfit+=profits[u][iter];
@@ -135,7 +138,7 @@ int main(int argc, char *argv[]) {
 		}
 		//greedy algorithm 2
 		else if(alg==1) {
-			for(int i = 0; i<items[u]; i++) {
+			for(int i = 1; i<items[u]; i++) {
 				for(int j = 1; j<items[u]+1; j++) {
 					if(ratios[u][j] > ratios[u][i]) {
 						double temp = ratios[u][i];
@@ -190,8 +193,8 @@ int main(int argc, char *argv[]) {
 			/*for(int t = 0; t<10; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
 			}*/
-			for(int i = 0; i<items[u]; i++) {
-				for(int j = 0; j<items[u]; j++) {
+			for(int i = 1; i<items[u]; i++) {
+				for(int j = 1; j<items[u]; j++) {
 					if(ratios[u][j] < ratios[u][i]) {
 						double tempr = ratios[u][i];
 						ratios[u][i] = ratios[u][j];
@@ -211,15 +214,15 @@ int main(int argc, char *argv[]) {
 			/*for(int t = 0; t<10; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
 			}*/
-			int bestset[1000];
-			int include[1000];
+			int bestset[1001];
+			int include[1001];
 			int numbest = 0;
 			double maxProfit = 0;
 			knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, u, items[u], bestset, include);
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
 			cout << maxProfit << endl;
-			for(int i = 0; i<numbest; i++) {
+			for(int i = 1; i<=numbest; i++) {
 				cout << bestset[i] <<endl;	
 			}
 		}	

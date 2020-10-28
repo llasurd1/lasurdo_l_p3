@@ -38,6 +38,7 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 		}
 		depth = depth + 1;
 	}
+	cout<< bound<< endl;
 	return bound;
 }
 
@@ -211,9 +212,9 @@ int main(int argc, char *argv[]) {
 				}
 			}
 			
-			for(int t = 0; t<10; t++) {
+			/*for(int t = 0; t<10; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
-			}
+			}*/
 			int bestset[1001];
 			int include[1001];
 			int numbest = 0;

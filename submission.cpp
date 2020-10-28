@@ -81,7 +81,7 @@ int napsack(int weight, int n, int u) {
 		return napsack(weight, n-1, u);	
 	}
 	else {
-		return max(profits[u][n] + napSack(weight - weights[u][n], weight, n - 1, u), napSack(weight, n - 1, u)); 
+		return max(profits[u][n] + napsack(weight - weights[u][n], weight, n - 1, u), napsack(weight, n - 1, u)); 
 	}
 }
 

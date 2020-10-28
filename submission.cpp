@@ -63,7 +63,9 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 	}
 }
 
-int max(double a, double b) { return (a > b) ? a : b; } 
+int max(double a, double b) { 
+	return (a > b) ? a : b; 
+} 
 
 int napsack(int weight, int n, int u) {
 	if(n==0||weight==0) {
@@ -149,9 +151,9 @@ int main(int argc, char *argv[]) {
 			}
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
-			cout << items[u] << " "<< maxProfit<< " " << time_span.count();
+			output << items[u] << " "<< maxProfit<< " " << time_span.count();
 			for(int i = 1; i<=iter; i++) {
-				cout << " " << i;	
+				output << " " << i;	
 			}
 		}
 		//greedy algorithm 2
@@ -196,15 +198,15 @@ int main(int argc, char *argv[]) {
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
 			if(pmax>maxProfit){
-				cout << items[u] << " "<< pmax<< " " << time_span.count();
+				output << items[u] << " "<< pmax<< " " << time_span.count();
 				
 				for(int i = 1; i<=iter; i++) {
-					cout << " " << i;	
+					output << " " << i;	
 				}
-				cout << "" << endl;
+				output << "" << endl;
 			}
 			else {
-				cout << items[u] << " "<< maxProfit<< " " << time_span.count() << " " << id << endl;
+				output << items[u] << " "<< maxProfit<< " " << time_span.count() << " " << id << endl;
 			}
 		}
 		//backtracking
@@ -242,7 +244,7 @@ int main(int argc, char *argv[]) {
 			double tempo = napsack(knapcaps[u], v, u);
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
-			cout << items[u] << " "<< tempo << " " << time_span.count() << endl;
+			output << items[u] << " "<< tempo << " " << time_span.count() << endl;
 			
 			/*cout << maxProfit << endl;
 			for(int i = 1; i<=numbest; i++) {

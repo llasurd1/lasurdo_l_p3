@@ -47,10 +47,10 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 		maxProfit = profit;
 		cout<< maxProfit << endl;
 		numbest = depth;
-		for(int i = 1; i<=3; i++) {
+		for(int i = 1; i<(sizeof(bestset)/sizeof(bestset[1])); i++) {
 			bestset[i] = 0;	
 		}
-		for(int i = 1; i<=3; i++) {
+		for(int i = 1; i<(sizeof(include)/sizeof(include[1])); i++) {
 			bestset[i] = include[i];
 		}
 	}

@@ -25,8 +25,8 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 	for(int i = depth; i<=n; i++) {
 		x[i] = 0;
 	}
-	while(weight<capacity && depth<=n) {
-		if(weight + weights[sett][depth] <=capacity) {
+	while((weight<capacity) && (depth<=n)) {
+		if((weight + weights[sett][depth]) <=capacity) {
 			x[depth] = 1;
 			weight+=weights[sett][depth];
 			bound+=profits[sett][depth];
@@ -38,7 +38,6 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 		}
 		depth = depth + 1;
 	}
-	
 	return bound;
 }
 
@@ -48,10 +47,10 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 		maxProfit = profit;
 		cout<< maxProfit << endl;
 		numbest = depth;
-		for(int i = 1; i<=sizeof(bestset)/sizeof(bestset[0]); i++) {
+		for(int i = 1; i<=3; i++) {
 			bestset[i] = 0;	
 		}
-		for(int i = 1; i<=sizeof(include)/sizeof(include[0]); i++) {
+		for(int i = 1; i<=3; i++) {
 			bestset[i] = include[i];
 		}
 	}

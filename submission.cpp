@@ -46,7 +46,7 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 		maxProfit = profit;
 		numbest = depth;
 		for(int i = 1; i<bestset.size(); i++) {
-			bestsize[i] = 0;	
+			bestset[i] = 0;	
 		}
 		for(int i = 1; i<sizeof(include); i++) {
 			bestset[i] = include[i];

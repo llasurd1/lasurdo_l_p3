@@ -46,6 +46,7 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 	//cout << maxProfit << endl;
 	if(weight <= capacity && profit>maxProfit){
 		maxProfit = profit;
+		cout<< maxProfit << endl;
 		numbest = depth;
 		for(int i = 1; i<=sizeof(bestset)/sizeof(bestset[0]); i++) {
 			bestset[i] = 0;	

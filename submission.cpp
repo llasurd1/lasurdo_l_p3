@@ -236,9 +236,11 @@ int main(int argc, char *argv[]) {
 			double maxProfit = 0;
 			//knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, u, items[u], bestset, include);
 			int v = sizeof(weights)/sizeof(weights[1]);
-			cout<< napsack(knapcaps[u], v, u);
+			double tempo = napsack(knapcaps[u], v, u);
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
+			cout << items[u] << " "<< tempo << " " << time_span.count() << endl;
+			
 			/*cout << maxProfit << endl;
 			for(int i = 1; i<=numbest; i++) {
 				cout << bestset[i] <<endl;	

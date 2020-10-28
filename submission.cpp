@@ -81,7 +81,7 @@ int napsack(int weight, int n, int u) {
 		return napsack(weight, n-1, u);	
 	}
 	else {
-		return max(profits[u][n] + knapSack(weight - weights[u][n], weight, n - 1, u), knapSack(weight, n - 1, u)); 
+		return max(profits[u][n] + napSack(weight - weights[u][n], weight, n - 1, u), napSack(weight, n - 1, u)); 
 	}
 }
 
@@ -243,7 +243,7 @@ int main(int argc, char *argv[]) {
 			double maxProfit = 0;
 			//knap_sack(0, 0, 0, knapcaps[u], maxProfit, numbest, u, items[u], bestset, include);
 			int v = sizeof(weights)/sizeof(weights[1]);
-			cout<< napsack(knapcap[u], v, u);
+			cout<< napsack(knapcaps[u], v, u);
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
 			cout << maxProfit << endl;

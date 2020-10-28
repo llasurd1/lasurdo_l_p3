@@ -213,7 +213,7 @@ int main(int argc, char *argv[]) {
 				}
 			}
 			
-			for(int t = 1; t<sizeof(ratios)/sizeof(ratios[0][1]); t++) {
+			for(int t = 1; t<=4; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
 			}
 			int bestset[1001];

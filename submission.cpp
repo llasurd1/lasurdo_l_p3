@@ -225,9 +225,9 @@ int main(int argc, char *argv[]) {
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
 			cout << maxProfit << endl;
-			for(int i = 1; i<=numbest; i++) {
+			/*for(int i = 1; i<=numbest; i++) {
 				cout << bestset[i] <<endl;	
-			}
+			}*/
 		}	
 	}
 	

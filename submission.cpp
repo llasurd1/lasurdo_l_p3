@@ -45,7 +45,6 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 	//cout << maxProfit << endl;
 	if(weight <= capacity && profit>maxProfit){
 		maxProfit = profit;
-		cout<< maxProfit << endl;
 		numbest = depth;
 		for(int i = 1; i<(sizeof(bestset)/sizeof(bestset[1])); i++) {
 			bestset[i] = 0;	
@@ -179,7 +178,7 @@ int main(int argc, char *argv[]) {
 			//}
 			double totalWeight = 0;
 			int maxProfit = 0;
-			int iter = 0;
+			int iter = 1;
 			while(totalWeight+weights[u][iter] <=knapcaps[u]) {
 				totalWeight+=weights[u][iter];
 				maxProfit+=profits[u][iter];
@@ -198,8 +197,9 @@ int main(int argc, char *argv[]) {
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
 			if(pmax>maxProfit){
 				cout << items[u] << " "<< pmax<< " " << time_span.count();
-				for(int b = 0; b<knapsack.size(); b++) {
-					cout << " " << knapsack[b];
+				
+				for(int i = 1; i<=iter; i++) {
+					cout << " " << i;	
 				}
 				cout << "" << endl;
 			}

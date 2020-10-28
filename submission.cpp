@@ -64,14 +64,7 @@ void knap_sack(int depth, double weight, double profit, int capacity, double max
 	}
 }
 
-int max(double a, double b) {
-	if(a>b) {
-		return a;	
-	}
-	else {
-		return b;	
-	}
-}
+int max(double a, double b) { return (a > b) ? a : b; } 
 
 int napsack(int weight, int n, int u) {
 	if(n==0||weight==0) {

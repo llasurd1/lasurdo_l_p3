@@ -43,7 +43,7 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 
 void knap_sack(int depth, double weight, double profit, int capacity, double maxProfit, int numbest, int sett, int n, int bestset[], int include[]) {
 	//cout << maxProfit << endl;
-	if(weight <= capacity && profit>maxProfit){
+	if(weight <= capacity && profit>=maxProfit){
 		maxProfit = profit;
 		cout<< maxProfit << endl;
 		numbest = depth;
@@ -213,9 +213,9 @@ int main(int argc, char *argv[]) {
 				}
 			}
 			
-			for(int t = 1; t<=20; t++) {
+			/*for(int t = 1; t<=20; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
-			}
+			}*/
 			int bestset[1001];
 			int include[1001];
 			int numbest = 0;

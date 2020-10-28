@@ -150,7 +150,10 @@ int main(int argc, char *argv[]) {
 			}
 			auto end = sc.now();
 	 		auto time_span = static_cast<chrono::duration<double>>(end-start);
-			cout << items[u] << " "<< maxProfit<< " " << time_span.count() << endl;
+			cout << items[u] << " "<< maxProfit<< " " << time_span.count();
+			for(int i = 1; i<=iter; i++) {
+				cout << " " << i;	
+			}
 		}
 		//greedy algorithm 2
 		else if(alg==1) {

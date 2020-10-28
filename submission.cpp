@@ -38,11 +38,12 @@ int upper(int depth, double weight, double profit, int capacity, int n, int sett
 		}
 		depth = depth + 1;
 	}
-	cout<< bound<< endl;
+	
 	return bound;
 }
 
 void knap_sack(int depth, double weight, double profit, int capacity, double maxProfit, int numbest, int sett, int n, int bestset[], int include[]) {
+	cout << maxProfit << endl;
 	if(weight <= capacity && profit>maxProfit){
 		maxProfit = profit;
 		numbest = depth;

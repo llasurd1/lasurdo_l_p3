@@ -215,7 +215,7 @@ int main(int argc, char *argv[]) {
 			
 			for(int t = 1; t<=20; t++) {
 				cout << ratios[u][t] << " " << weights[u][t] << " " << profits[u][t]<< endl;
-			/
+			}
 			int bestset[1001];
 			int include[1001];
 			int numbest = 0;
